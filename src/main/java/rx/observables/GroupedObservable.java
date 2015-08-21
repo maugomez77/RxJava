@@ -41,6 +41,8 @@ public class GroupedObservable<K, T> extends Observable<T> {
     /**
      * Converts an {@link Observable} into a {@code GroupedObservable} with a particular key.
      *
+     * @param <K> k
+     * @param <T> t
      * @param key
      *            the key to identify the group of items emitted by this {@code GroupedObservable}
      * @param o
@@ -75,7 +77,7 @@ public class GroupedObservable<K, T> extends Observable<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code create} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     * @param key key
      * @param <K>
      *            the type of the key
      * @param <T>

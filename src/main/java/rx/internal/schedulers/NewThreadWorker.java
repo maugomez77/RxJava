@@ -28,7 +28,6 @@ import rx.plugins.*;
 import rx.subscriptions.*;
 
 /**
- * @warn class description missing
  */
 public class NewThreadWorker extends Scheduler.Worker implements Subscription {
     private final ScheduledExecutorService executor;
@@ -51,7 +50,7 @@ public class NewThreadWorker extends Scheduler.Worker implements Subscription {
         PURGE_FORCE = Boolean.getBoolean(PURGE_FORCE_KEY);
         PURGE_FREQUENCY = Integer.getInteger(FREQUENCY_KEY, 1000);
     }
-    /** 
+    /**
      * Registers the given executor service and starts the purge thread if not already started. 
      * <p>{@code public} visibility reason: called from other package(s) within RxJava
      * @param service a scheduled thread pool executor instance 
@@ -64,20 +63,27 @@ public class NewThreadWorker extends Scheduler.Worker implements Subscription {
             }
             exec = Executors.newScheduledThreadPool(1, new RxThreadFactory(PURGE_THREAD_PREFIX));
             if (PURGE.compareAndSet(null, exec)) {
+                if (exec instanceof ScheduledThreadPoolExecutor) {
+                    ScheduledThreadPoolExecutor stpe = (ScheduledThreadPoolExecutor) exec;
+                    stpe.setContinueExistingPeriodicTasksAfterShutdownPolicy(false);
+                    stpe.setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
+                }
                 exec.scheduleAtFixedRate(new Runnable() {
                     @Override
                     public void run() {
                         purgeExecutors();
                     }
                 }, PURGE_FREQUENCY, PURGE_FREQUENCY, TimeUnit.MILLISECONDS);
-                
+
                 break;
+            } else {
+                exec.shutdownNow();
             }
         } while (true);
-        
+
         EXECUTORS.putIfAbsent(service, service);
     }
-    /** 
+    /**
      * Deregisters the executor service. 
      * <p>{@code public} visibility reason: called from other package(s) within RxJava
      * @param service a scheduled thread pool executor instance 
@@ -102,8 +108,8 @@ public class NewThreadWorker extends Scheduler.Worker implements Subscription {
             RxJavaPlugins.getInstance().getErrorHandler().handleError(t);
         }
     }
-    
-    /** 
+
+    /**
      * Tries to enable the Java 7+ setRemoveOnCancelPolicy.
      * <p>{@code public} visibility reason: called from other package(s) within RxJava.
      * If the method returns false, the {@link #registerExecutor(ScheduledThreadPoolExecutor)} may
@@ -112,6 +118,11 @@ public class NewThreadWorker extends Scheduler.Worker implements Subscription {
      * @return true if the policy was successfully enabled 
      */
     public static boolean tryEnableCancelPolicy(ScheduledExecutorService exec) {
+        if (exec instanceof ScheduledThreadPoolExecutor) {
+            ScheduledThreadPoolExecutor stpe = (ScheduledThreadPoolExecutor) exec;
+            stpe.setContinueExistingPeriodicTasksAfterShutdownPolicy(false);
+            stpe.setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
+        }
         if (!PURGE_FORCE) {
             for (Method m : exec.getClass().getMethods()) {
                 if (m.getName().equals("setRemoveOnCancelPolicy")
@@ -128,7 +139,7 @@ public class NewThreadWorker extends Scheduler.Worker implements Subscription {
         }
         return false;
     }
-    
+
     /* package */
     public NewThreadWorker(ThreadFactory threadFactory) {
         ScheduledExecutorService exec = Executors.newScheduledThreadPool(1, threadFactory);
@@ -155,11 +166,10 @@ public class NewThreadWorker extends Scheduler.Worker implements Subscription {
     }
 
     /**
-     * @warn javadoc missing
-     * @param action
-     * @param delayTime
-     * @param unit
-     * @return
+     * @param action       action
+     * @param delayTime    delay time
+     * @param unit         unit
+     * @return ScheduledAction
      */
     public ScheduledAction scheduleActual(final Action0 action, long delayTime, TimeUnit unit) {
         Action0 decoratedAction = schedulersHook.onSchedule(action);
@@ -189,12 +199,12 @@ public class NewThreadWorker extends Scheduler.Worker implements Subscription {
 
         return run;
     }
-    
+
     public ScheduledAction scheduleActual(final Action0 action, long delayTime, TimeUnit unit, SubscriptionList parent) {
         Action0 decoratedAction = schedulersHook.onSchedule(action);
         ScheduledAction run = new ScheduledAction(decoratedAction, parent);
         parent.add(run);
-        
+
         Future<?> f;
         if (delayTime <= 0) {
             f = executor.submit(run);

@@ -50,8 +50,8 @@ import rx.subscriptions.Subscriptions;
 public final class BufferUntilSubscriber<T> extends Subject<T, T> {
 
     /**
-     * @warn create() undescribed
-     * @return
+     * @param <T> description
+     * @return description
      */
     public static <T> BufferUntilSubscriber<T> create() {
         State<T> state = new State<T>();

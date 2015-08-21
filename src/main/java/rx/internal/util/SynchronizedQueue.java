@@ -23,7 +23,7 @@ import java.util.Queue;
 /**
  * Intended for use when the `sun.misc.Unsafe` implementations can't be used.
  *
- * @param <T>
+ * @param <T>  t
  */
 public class SynchronizedQueue<T> implements Queue<T> {
 

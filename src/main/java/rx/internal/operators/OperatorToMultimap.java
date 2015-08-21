@@ -28,7 +28,7 @@ import rx.functions.Func1;
 
 /**
  * Maps the elements of the source observable into a multimap
- * (Map&lt;K, Collection&lt;V>>) where each
+ * where each
  * key entry has a collection of the source's values.
  *
  * @see <a href='https://github.com/ReactiveX/RxJava/issues/97'>Issue #97</a>
@@ -64,6 +64,9 @@ public final class OperatorToMultimap<T, K, V> implements Operator<Map<K, Collec
     /**
      * ToMultimap with key selector, custom value selector,
      * default HashMap factory and default ArrayList collection factory.
+     *
+     * @param keySelector key
+     * @param valueSelector value
      */
     public OperatorToMultimap(
             Func1<? super T, ? extends K> keySelector,
@@ -76,6 +79,10 @@ public final class OperatorToMultimap<T, K, V> implements Operator<Map<K, Collec
     /**
      * ToMultimap with key selector, custom value selector,
      * custom Map factory and default ArrayList collection factory.
+     *
+     * @param keySelector key
+     * @param valueSelector value
+     * @param mapFactory map
      */
     public OperatorToMultimap(
             Func1<? super T, ? extends K> keySelector,
@@ -89,6 +96,11 @@ public final class OperatorToMultimap<T, K, V> implements Operator<Map<K, Collec
     /**
      * ToMultimap with key selector, custom value selector,
      * custom Map factory and custom collection factory.
+     *
+     * @param keySelector key
+     * @param valueSelector value
+     * @param mapFactory map
+     * @param collectionFactory col
      */
     public OperatorToMultimap(
             Func1<? super T, ? extends K> keySelector,

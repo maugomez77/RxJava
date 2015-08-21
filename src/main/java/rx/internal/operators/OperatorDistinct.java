@@ -39,7 +39,8 @@ public final class OperatorDistinct<T, U> implements Operator<T, T> {
     /**
      * Returns a singleton instance of OperatorDistinct that was built using 
      * the identity function for comparison (<code>new OperatorDistinct(UtilityFunctions.identity())</code>).
-     * 
+     *
+     * @param <T> t
      * @return Operator that emits distinct values only (regardless of order) using the identity function for comparison 
      */
     @SuppressWarnings("unchecked")

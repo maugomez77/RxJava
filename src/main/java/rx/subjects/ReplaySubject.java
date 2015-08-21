@@ -33,25 +33,6 @@ import rx.subjects.SubjectSubscriptionManager.SubjectObserver;
 
 /**
  * Subject that buffers all items it observes and replays them to any {@link Observer} that subscribes.
- * <p>
- * <img width="640" src="https://raw.github.com/wiki/ReactiveX/RxJava/images/rx-operators/S.ReplaySubject.png" alt="">
- * <p>
- * Example usage:
- * <p>
- * <pre> {@code
-
-  ReplaySubject<Object> subject = ReplaySubject.create();
-  subject.onNext("one");
-  subject.onNext("two");
-  subject.onNext("three");
-  subject.onCompleted();
-
-  // both of the following will get the onNext/onCompleted calls from above
-  subject.subscribe(observer1);
-  subject.subscribe(observer2);
-
-  } </pre>
- * 
  * @param <T>
  *          the type of items observed and emitted by the Subject
  */

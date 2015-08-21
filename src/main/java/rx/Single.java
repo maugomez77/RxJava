@@ -123,10 +123,6 @@ public class Single<T> {
      * Write the function you pass to {@code create} so that it behaves as a Single: It should invoke the
      * SingleSubscriber {@link SingleSubscriber#onSuccess onSuccess} and/or
      * {@link SingleSubscriber#onError onError} methods appropriately.
-     * <p>
-     * A well-formed Single must invoke either the SingleSubscriber's {@code onSuccess} method exactly once or
-     * its {@code onError} method exactly once.
-     * <p>
      * <dl>
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code create} does not operate by default on a particular {@link Scheduler}.</dd>
@@ -219,7 +215,7 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code compose} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     * @param  <R> r
      * @param transformer
      *            implements the function that transforms the source Single
      * @return the source Single, transformed by the transformer function
@@ -232,8 +228,7 @@ public class Single<T> {
 
     /**
      * Transformer function used by {@link #compose}.
-     * 
-     * @warn more complete description needed
+     * @param <R> r
      */
     public static interface Transformer<T, R> extends Func1<Single<T>, Single<R>> {
         // cover for generics insanity
@@ -282,6 +277,7 @@ public class Single<T> {
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
      *
+     * @param <T> t
      * @param t1
      *            an Single to be concatenated
      * @param t2
@@ -302,6 +298,7 @@ public class Single<T> {
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
      *
+     * @param  <T> t
      * @param t1
      *            a Single to be concatenated
      * @param t2
@@ -323,7 +320,8 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param  <T> t
      * @param t1
      *            a Single to be concatenated
      * @param t2
@@ -347,7 +345,7 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     *
+     * @param  <T> t
      * @param t1
      *            a Single to be concatenated
      * @param t2
@@ -374,6 +372,7 @@ public class Single<T> {
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
      *
+     * @param  <T> t
      * @param t1
      *            a Single to be concatenated
      * @param t2
@@ -402,6 +401,7 @@ public class Single<T> {
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
      *
+     * @param  <T> t
      * @param t1
      *            a Single to be concatenated
      * @param t2
@@ -431,7 +431,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param  <T> t
+     *
      * @param t1
      *            a Single to be concatenated
      * @param t2
@@ -463,7 +465,8 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code concat} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T>  t
      * @param t1
      *            a Single to be concatenated
      * @param t2
@@ -638,13 +641,12 @@ public class Single<T> {
     /**
      * Flattens a {@code Single} that emits a {@code Single} into a single {@code Single} that emits the item
      * emitted by the nested {@code Single}, without any transformation.
-     * <p>
-     * <img width="640" height="370" src="https://raw.github.com/wiki/ReactiveX/RxJava/images/rx-operators/Single.merge.oo.png" alt="">
-     * <p>
      * <dl>
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
+     *
+     * @param <T> t
      *
      * @param source
      *            a {@code Single} that emits a {@code Single}
@@ -685,7 +687,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -708,7 +712,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -733,7 +739,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param  <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -760,7 +768,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param  <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -789,7 +799,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -820,7 +832,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param  <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -853,7 +867,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     *@param  <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -888,7 +904,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code merge} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param  <T> t
+     *
      * @param t1
      *            a Single to be merged
      * @param t2
@@ -923,7 +941,10 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     *  @param  <T1> t1
+     *  @param <T2> t2
+     *  @param <R> r
      * @param o1
      *            the first source Single
      * @param o2
@@ -947,7 +968,11 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <R> R
      * @param o1
      *            the first source Single
      * @param o2
@@ -973,7 +998,12 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <R> r
      * @param o1
      *            the first source Single
      * @param o2
@@ -1001,7 +1031,15 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <R> r
+     *
+     *
      * @param o1
      *            the first source Single
      * @param o2
@@ -1031,7 +1069,13 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> T6
+     * @param <R> r
      * @param o1
      *            the first source Single
      * @param o2
@@ -1064,7 +1108,15 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <R> r
      * @param o1
      *            the first source Single
      * @param o2
@@ -1099,7 +1151,17 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <T8> T8
+     * @param <R> r
+     *
      * @param o1
      *            the first source Single
      * @param o2
@@ -1136,7 +1198,18 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code zip} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <T8> t8
+     * @param <T9> t9
+     * @param <R> r
+     *
      * @param o1
      *            the first source Single
      * @param o2
@@ -1195,7 +1268,7 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code flatMap} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     * @param  <R>  r
      * @param func
      *            a function that, when applied to the item emitted by the source Single, returns a Single
      * @return the Single returned from {@code func} when applied to the item emitted by the source Single
@@ -1214,7 +1287,9 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code flatMapObservable} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     *
+     * @param <R> r
+     *
      * @param func
      *            a function that, when applied to the item emitted by the source Single, returns an
      *            Observable
@@ -1234,7 +1309,7 @@ public class Single<T> {
      * <dt><b>Scheduler:</b></dt>
      * <dd>{@code map} does not operate by default on a particular {@link Scheduler}.</dd>
      * </dl>
-     * 
+     * @param <R> r
      * @param func
      *            a function to apply to the item emitted by the Single
      * @return a Single that emits the item from the source Single, transformed by the specified function

@@ -39,6 +39,7 @@ public final class OperatorPublish<T> extends ConnectableObservable<T> {
 
     /**
      * Creates a OperatorPublish instance to publish values of the given source observable.
+     * @param <T> t
      * @param source the source observable
      * @return the connectable observable
      */

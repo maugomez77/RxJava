@@ -23,7 +23,6 @@ import rx.subscriptions.Subscriptions;
 
 /**
  * Unsubscribes on the specified Scheduler.
- * <p>
  */
 public class OperatorUnsubscribeOn<T> implements Operator<T, T> {
 

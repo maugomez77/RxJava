@@ -35,7 +35,7 @@ interface MessagePassingQueue<M> {
      * Called from a producer thread subject to the restrictions appropriate to the implementation and according to the
      * {@link Queue#offer(Object)} interface.
      * 
-     * @param message
+     * @param message message
      * @return true if element was inserted into the queue, false iff full
      */
     boolean offer(M message);

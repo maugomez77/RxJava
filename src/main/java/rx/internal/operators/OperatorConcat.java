@@ -45,6 +45,7 @@ public final class OperatorConcat<T> implements Operator<T, Observable<? extends
     }
     /**
      * @return a singleton instance of this stateless operator.
+     * @param <T> t
      */
     @SuppressWarnings("unchecked")
     public static <T> OperatorConcat<T> instance() {

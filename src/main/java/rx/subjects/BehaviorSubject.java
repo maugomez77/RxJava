@@ -28,44 +28,7 @@ import rx.subjects.SubjectSubscriptionManager.SubjectObserver;
 
 /**
  * Subject that emits the most recent item it has observed and all subsequent observed items to each subscribed
- * {@link Observer}.
- * <p>
- * <img width="640" src="https://raw.github.com/wiki/ReactiveX/RxJava/images/rx-operators/S.BehaviorSubject.png" alt="">
- * <p>
- * Example usage:
- * <p>
- * <pre> {@code
 
-  // observer will receive all events.
-  BehaviorSubject<Object> subject = BehaviorSubject.create("default");
-  subject.subscribe(observer);
-  subject.onNext("one");
-  subject.onNext("two");
-  subject.onNext("three");
-
-  // observer will receive the "one", "two" and "three" events, but not "zero"
-  BehaviorSubject<Object> subject = BehaviorSubject.create("default");
-  subject.onNext("zero");
-  subject.onNext("one");
-  subject.subscribe(observer);
-  subject.onNext("two");
-  subject.onNext("three");
-
-  // observer will receive only onCompleted
-  BehaviorSubject<Object> subject = BehaviorSubject.create("default");
-  subject.onNext("zero");
-  subject.onNext("one");
-  subject.onCompleted();
-  subject.subscribe(observer);
-  
-  // observer will receive only onError
-  BehaviorSubject<Object> subject = BehaviorSubject.create("default");
-  subject.onNext("zero");
-  subject.onNext("one");
-  subject.onError(new RuntimeException("error"));
-  subject.subscribe(observer);
-  } </pre>
- * 
  * @param <T>
  *          the type of item expected to be observed by the Subject
  */

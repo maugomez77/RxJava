@@ -52,6 +52,9 @@ public final class OperatorToMap<T, K, V> implements Operator<Map<K, V>, T> {
 
     /**
      * ToMap with key selector, value selector and default HashMap factory.
+     * @param keySelector key
+     * @param valueSelector value
+     *
      */
     public OperatorToMap(
             Func1<? super T, ? extends K> keySelector,
@@ -62,6 +65,9 @@ public final class OperatorToMap<T, K, V> implements Operator<Map<K, V>, T> {
 
     /**
      * ToMap with key selector, value selector and custom Map factory.
+     * @param keySelector key
+     * @param valueSelector value
+     * @param mapFactory map
      */
     public OperatorToMap(
             Func1<? super T, ? extends K> keySelector,

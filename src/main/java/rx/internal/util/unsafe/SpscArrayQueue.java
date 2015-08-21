@@ -85,7 +85,7 @@ abstract class SpscArrayQueueL3Pad<E> extends SpscArrayQueueConsumerField<E> {
  * 
  * @author nitsanw
  * 
- * @param <E>
+ * @param <E> e
  */
 public final class SpscArrayQueue<E> extends SpscArrayQueueL3Pad<E> {
 

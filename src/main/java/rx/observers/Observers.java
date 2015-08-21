@@ -53,6 +53,7 @@ public final class Observers {
      * {@link Observer#onError onError} method is called.
      *
      * @return an inert {@code Observer}
+     * @param <T>  t
      */
     @SuppressWarnings("unchecked")
     public static <T> Observer<T> empty() {
@@ -64,6 +65,7 @@ public final class Observers {
      * {@link Observer#onNext onNext} but ignores {@link Observer#onCompleted onCompleted} notifications; 
      * it will throw an {@link OnErrorNotImplementedException} if {@link Observer#onError onError} is invoked.
      *
+     * @param <T> t
      * @param onNext
      *          a function that handles each item emitted by an {@code Observable}
      * @throws IllegalArgumentException
@@ -100,7 +102,9 @@ public final class Observers {
      * Creates an {@link Observer} that receives the emissions of any {@code Observable} it subscribes to via
      * {@link Observer#onNext onNext} and handles any {@link Observer#onError onError} notification but ignores
      * an {@link Observer#onCompleted onCompleted} notification.
-     * 
+     *
+     * @param <T>  t
+     *
      * @param onNext
      *          a function that handles each item emitted by an {@code Observable}
      * @param onError
@@ -143,7 +147,8 @@ public final class Observers {
      * Creates an {@link Observer} that receives the emissions of any {@code Observable} it subscribes to via
      * {@link Observer#onNext onNext} and handles any {@link Observer#onError onError} or
      * {@link Observer#onCompleted onCompleted} notifications.
-     * 
+     *
+     * @param <T> t
      * @param onNext
      *          a function that handles each item emitted by an {@code Observable}
      * @param onError

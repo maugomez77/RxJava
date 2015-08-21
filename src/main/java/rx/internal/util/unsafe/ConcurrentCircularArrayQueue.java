@@ -40,7 +40,7 @@ abstract class ConcurrentCircularArrayQueueL0Pad<E> extends AbstractQueue<E> imp
  * 
  * @author nitsanw
  * 
- * @param <E>
+ * @param <E> e
  */
 public abstract class ConcurrentCircularArrayQueue<E> extends ConcurrentCircularArrayQueueL0Pad<E> {
     protected static final int SPARSE_SHIFT = Integer.getInteger("sparse.shift", 0);
@@ -81,7 +81,7 @@ public abstract class ConcurrentCircularArrayQueue<E> extends ConcurrentCircular
     }
     /**
      * @param index desirable element index
-     * @param mask 
+     * @param mask   mask
      * @return the offset in bytes within the array for a given index.
      */
     protected final long calcElementOffset(long index, long mask) {

@@ -41,7 +41,7 @@ public final class BlockingOperatorToIterator {
 
     /**
      * Returns an iterator that iterates all values of the observable.
-     * 
+     * @param source source
      * @param <T>
      *            the type of source.
      * @return the iterator that could be used to iterate over the elements of the observable.

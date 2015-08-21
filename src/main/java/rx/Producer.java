@@ -16,7 +16,6 @@
 package rx;
 
 /**
- * @warn javadoc description missing
  */
 public interface Producer {
 

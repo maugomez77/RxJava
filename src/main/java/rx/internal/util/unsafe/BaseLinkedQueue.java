@@ -72,7 +72,7 @@ abstract class BaseLinkedQueueConsumerNodeRef<E> extends BaseLinkedQueuePad1<E> 
  * 
  * @author nitsanw
  * 
- * @param <E>
+ * @param <E> e
  */
 abstract class BaseLinkedQueue<E> extends BaseLinkedQueueConsumerNodeRef<E> {
     long p00, p01, p02, p03, p04, p05, p06, p07;

@@ -39,7 +39,8 @@ public final class OperatorSingle<T> implements Operator<T, T> {
     /**
      * Returns a singleton instance of OperatorSingle (if the stream is empty or has 
      * more than one element an error will be emitted) that is cast to the generic type.
-     *  
+     *
+     *  @param <T> t
      * @return a singleton instance of an Operator that will emit a single value only unless the stream has zero or more than one element in which case it will emit an error.
      */
     @SuppressWarnings("unchecked")

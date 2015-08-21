@@ -67,8 +67,8 @@ public final class SubscriptionIndexedRingBuffer<T extends Subscription> impleme
 
     /**
      * Uses the Node received from `add` to remove this Subscription.
-     * <p>
      * Unsubscribes the Subscription after removal
+     * @param   n  number
      */
     public void remove(final int n) {
         if (unsubscribed == 1 || subscriptions == null || n < 0) {
@@ -85,8 +85,9 @@ public final class SubscriptionIndexedRingBuffer<T extends Subscription> impleme
 
     /**
      * Uses the Node received from `add` to remove this Subscription.
-     * <p>
      * Does not unsubscribe the Subscription after removal.
+     *
+     * @param n  number
      */
     public void removeSilently(final int n) {
         if (unsubscribed == 1 || subscriptions == null || n < 0) {
@@ -113,7 +114,8 @@ public final class SubscriptionIndexedRingBuffer<T extends Subscription> impleme
 
     /**
      * 
-     * @param action
+     * @param action  action
+     * @param startIndex   start index
      * @return int of last index seen if forEach exited early
      */
     public synchronized int forEach(Func1<T, Boolean> action, int startIndex) {

@@ -34,7 +34,7 @@ import rx.internal.util.atomic.LinkedQueueNode;
  * 
  * @author nitsanw
  * 
- * @param <E>
+ * @param <E> e
  */
 public final class SpscLinkedQueue<E> extends BaseLinkedQueue<E> {
 

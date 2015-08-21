@@ -21,7 +21,7 @@ import rx.functions.Func0;
 import rx.observers.Subscribers;
 
 /**
- * Delays the subscription until the Observable<U> emits an event.
+ * Delays the subscription until the Observable emits an event.
  * 
  * @param <T>
  *            the value type

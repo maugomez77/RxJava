@@ -43,7 +43,7 @@ public class LinkedArrayList {
     int indexInTail;
     /**
      * Constructor with the capacity hint of each array segment.
-     * @param capacityHint
+     * @param capacityHint capacity
      */
     public LinkedArrayList(int capacityHint) {
         this.capacityHint = capacityHint;
@@ -77,35 +77,35 @@ public class LinkedArrayList {
     }
     /**
      * Returns the head buffer segment or null if the list is empty.
-     * @return
+     * @return something
      */
     public Object[] head() {
         return head;
     }
     /**
      * Returns the tail buffer segment or null if the list is empty.
-     * @return
+     * @return something
      */
     public Object[] tail() {
         return tail;
     }
     /**
      * Returns the total size of the list.
-     * @return
+     * @return something
      */
     public int size() {
         return size;
     }
     /**
      * Returns the index of the next slot in the tail buffer segment.
-     * @return
+     * @return something
      */
     public int indexInTail() {
         return indexInTail;
     }
     /**
      * Returns the capacity hint that indicates the capacity of each buffer segment.
-     * @return
+     * @return something
      */
     public int capacityHint() {
         return capacityHint;

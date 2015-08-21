@@ -34,6 +34,7 @@ public final class CachedObservable<T> extends Observable<T> {
 
     /**
      * Creates a cached Observable with a default capacity hint of 16.
+     * @param <T> t
      * @param source the source Observable to cache
      * @return the CachedObservable instance
      */
@@ -43,6 +44,7 @@ public final class CachedObservable<T> extends Observable<T> {
     
     /**
      * Creates a cached Observable with the given capacity hint.
+     * @param <T> t
      * @param source the source Observable to cache
      * @param capacityHint the hint for the internal buffer size
      * @return the CachedObservable instance
@@ -262,7 +264,7 @@ public final class CachedObservable<T> extends Observable<T> {
     /**
      * Keeps track of the current request amount and the replay position for a child Subscriber.
      *
-     * @param <T>
+     * @param <T>  t
      */
     static final class ReplayProducer<T> extends AtomicLong implements Producer, Subscription {
         /** */

@@ -42,13 +42,14 @@ import rx.functions.Func1;
 public abstract class RxJavaObservableExecutionHook {
     /**
      * Invoked during the construction by {@link Observable#create(OnSubscribe)}
-     * <p>
+     *
      * This can be used to decorate or replace the <code>onSubscribe</code> function or just perform extra
      * logging, metrics and other such things and pass-thru the function.
-     * 
+     *
+     * @param <T> t
      * @param f
-     *            original {@link OnSubscribe}<{@code T}> to be executed
-     * @return {@link OnSubscribe}<{@code T}> function that can be modified, decorated, replaced or just
+     *            original to be executed
+     * @return function that can be modified, decorated, replaced or just
      *         returned as a pass-thru
      */
     public <T> OnSubscribe<T> onCreate(OnSubscribe<T> f) {
@@ -57,13 +58,15 @@ public abstract class RxJavaObservableExecutionHook {
 
     /**
      * Invoked before {@link Observable#subscribe(rx.Subscriber)} is about to be executed.
-     * <p>
+     *
      * This can be used to decorate or replace the <code>onSubscribe</code> function or just perform extra
      * logging, metrics and other such things and pass-thru the function.
-     * 
+     *
+     * @param observableInstance  p
+     * @param <T> t
      * @param onSubscribe
-     *            original {@link OnSubscribe}<{@code T}> to be executed
-     * @return {@link OnSubscribe}<{@code T}> function that can be modified, decorated, replaced or just
+     *            original to be executed
+     * @return function that can be modified, decorated, replaced or just
      *         returned as a pass-thru
      */
     public <T> OnSubscribe<T> onSubscribeStart(Observable<? extends T> observableInstance, final OnSubscribe<T> onSubscribe) {
@@ -72,12 +75,12 @@ public abstract class RxJavaObservableExecutionHook {
     }
 
     /**
-     * Invoked after successful execution of {@link Observable#subscribe(rx.Subscriber)} with returned
-     * {@link Subscription}.
-     * <p>
+     * Invoked after successful execution of  with returned
+     *
      * This can be used to decorate or replace the {@link Subscription} instance or just perform extra logging,
      * metrics and other such things and pass-thru the subscription.
-     * 
+     *
+     * @param <T> t
      * @param subscription
      *            original {@link Subscription}
      * @return {@link Subscription} subscription that can be modified, decorated, replaced or just returned as a
@@ -89,13 +92,11 @@ public abstract class RxJavaObservableExecutionHook {
     }
 
     /**
-     * Invoked after failed execution of {@link Observable#subscribe(Subscriber)} with thrown Throwable.
-     * <p>
-     * This is <em>not</em> errors emitted via {@link Subscriber#onError(Throwable)} but exceptions thrown when
-     * attempting to subscribe to a {@link Func1}<{@link Subscriber}{@code <T>}, {@link Subscription}>.
-     * 
+     * Invoked after failed execution of with thrown Throwable.
+     *
+     * @param <T> t
      * @param e
-     *            Throwable thrown by {@link Observable#subscribe(Subscriber)}
+     *            Throwable thrown by
      * @return Throwable that can be decorated, replaced or just returned as a pass-thru
      */
     public <T> Throwable onSubscribeError(Throwable e) {
@@ -105,14 +106,16 @@ public abstract class RxJavaObservableExecutionHook {
 
     /**
      * Invoked just as the operator functions is called to bind two operations together into a new
-     * {@link Observable} and the return value is used as the lifted function
-     * <p>
-     * This can be used to decorate or replace the {@link Operator} instance or just perform extra
+     *  and the return value is used as the lifted function
+     *
+     * This can be used to decorate or replace the instance or just perform extra
      * logging, metrics and other such things and pass-thru the onSubscribe.
-     * 
+     *
+     * @param <T> t
+     * @param <R> r
      * @param lift
-     *            original {@link Operator}{@code <R, T>}
-     * @return {@link Operator}{@code <R, T>} function that can be modified, decorated, replaced or just
+     *            original
+     * @return function that can be modified, decorated, replaced or just
      *         returned as a pass-thru
      */
     public <T, R> Operator<? extends R, ? super T> onLift(final Operator<? extends R, ? super T> lift) {

@@ -22,7 +22,6 @@ import java.util.Set;
 import rx.annotations.Experimental;
 
 /**
- * @warn javadoc class description missing
  */
 public final class Exceptions {
     private Exceptions() {

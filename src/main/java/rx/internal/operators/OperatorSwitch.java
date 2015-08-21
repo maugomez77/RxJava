@@ -40,6 +40,7 @@ public final class OperatorSwitch<T> implements Operator<T, Observable<? extends
         static final OperatorSwitch<Object> INSTANCE = new OperatorSwitch<Object>();
     }
     /**
+     * @param <T>  t
      * @return a singleton instance of this stateless operator.
      */
     @SuppressWarnings({ "unchecked" })

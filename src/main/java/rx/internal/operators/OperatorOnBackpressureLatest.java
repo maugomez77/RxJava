@@ -32,6 +32,7 @@ public final class OperatorOnBackpressureLatest<T> implements Operator<T, T> {
     
     /**
      * Returns a singleton instance of the OnBackpressureLatest operator since it is stateless.
+     * @param <T> t
      * @return the single instanceof OperatorOnBackpressureLatest
      */
     @SuppressWarnings("unchecked")
@@ -51,7 +52,7 @@ public final class OperatorOnBackpressureLatest<T> implements Operator<T, T> {
     }
     /**
      * A terminatable producer which emits the latest items on request.
-     * @param <T>
+     * @param <T> t
      */
     static final class LatestEmitter<T> extends AtomicLong implements Producer, Subscription, Observer<T> {
         /** */

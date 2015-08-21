@@ -27,14 +27,6 @@
  * </p>
  * 
  * 
- * <p>Compared with the Microsoft implementation:
- * <ul>
- * <li>Observable == IObservable</li>
- * <li>Observer == IObserver</li>
- * <li>Subscription == IDisposable</li>
- * <li>ObservableExtensions == Observable</li>
- * </ul>
- * </p>
  * <p>Services which intend on exposing data asynchronously and wish
  * to allow reactive processing and composition can implement the {@link rx.Observable} interface which then allows Observers to subscribe to them
  * and receive events.</p>

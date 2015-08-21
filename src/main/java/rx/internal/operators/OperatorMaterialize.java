@@ -35,6 +35,7 @@ public final class OperatorMaterialize<T> implements Operator<Notification<T>, T
         static final OperatorMaterialize<Object> INSTANCE = new OperatorMaterialize<Object>();
     }
     /**
+     * @param <T> t
      * @return a singleton instance of this stateless operator.
      */
     @SuppressWarnings("unchecked")

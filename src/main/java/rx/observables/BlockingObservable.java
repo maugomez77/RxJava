@@ -62,7 +62,7 @@ public final class BlockingObservable<T> {
 
     /**
      * Converts an {@link Observable} into a {@code BlockingObservable}.
-     *
+     * @param <T> t
      * @param o
      *          the {@link Observable} you want to convert
      * @return a {@code BlockingObservable} version of {@code o}

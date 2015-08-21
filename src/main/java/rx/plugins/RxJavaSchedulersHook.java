@@ -42,28 +42,31 @@ public class RxJavaSchedulersHook {
     private final static RxJavaSchedulersHook DEFAULT_INSTANCE = new RxJavaSchedulersHook();
 
     /**
-     * Scheduler to return from {@link rx.schedulers.Schedulers#computation()} or null if default should be
+     * Scheduler to return from or null if default should be
      * used.
      *
      * This instance should be or behave like a stateless singleton;
+     * @return something
      */
     public Scheduler getComputationScheduler() {
         return null;
     }
 
     /**
-     * Scheduler to return from {@link rx.schedulers.Schedulers#io()} or null if default should be used.
+     * Scheduler to return from or null if default should be used.
      *
      * This instance should be or behave like a stateless singleton;
+     * @return something
      */
     public Scheduler getIOScheduler() {
         return null;
     }
 
     /**
-     * Scheduler to return from {@link rx.schedulers.Schedulers#newThread()} or null if default should be used.
+     * Scheduler to return from or null if default should be used.
      *
      * This instance should be or behave like a stateless singleton;
+     * @return something
      */
     public Scheduler getNewThreadScheduler() {
         return null;

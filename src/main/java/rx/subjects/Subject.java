@@ -44,10 +44,7 @@ public abstract class Subject<T, R> extends Observable<R> implements Observer<T>
      * <p>
      * To protect a {@code Subject} from this danger, you can convert it into a {@code SerializedSubject} with code
      * like the following:
-     * <p><pre>{@code
-     * mySafeSubject = myUnsafeSubject.toSerialized();
-     * }</pre>
-     * 
+     *
      * @return SerializedSubject wrapping the current Subject
      */
     public final SerializedSubject<T, R> toSerialized() {

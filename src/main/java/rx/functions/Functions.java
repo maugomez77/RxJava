@@ -22,7 +22,8 @@ public final class Functions {
 
     /**
      * Converts a {@link Func0} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <R>  r
      * @param f
      *          the {@code Func0} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -43,7 +44,9 @@ public final class Functions {
 
     /**
      * Converts a {@link Func1} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <R> r
      * @param f
      *          the {@code Func1} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -65,7 +68,11 @@ public final class Functions {
 
     /**
      * Converts a {@link Func2} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <R> r
+     *
      * @param f
      *          the {@code Func2} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -88,6 +95,11 @@ public final class Functions {
     /**
      * Converts a {@link Func3} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
      * 
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <R> r
+     *
      * @param f
      *          the {@code Func3} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -109,7 +121,11 @@ public final class Functions {
 
     /**
      * Converts a {@link Func4} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <R> r
      * @param f
      *          the {@code Func4} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -131,7 +147,14 @@ public final class Functions {
 
     /**
      * Converts a {@link Func5} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <R> r
+
      * @param f
      *          the {@code Func5} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -153,7 +176,14 @@ public final class Functions {
 
     /**
      * Converts a {@link Func6} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <R> r
      * @param f
      *          the {@code Func6} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -175,7 +205,15 @@ public final class Functions {
 
     /**
      * Converts a {@link Func7} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <R> r
      * @param f
      *          the {@code Func7} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -197,7 +235,17 @@ public final class Functions {
 
     /**
      * Converts a {@link Func8} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> T6
+     * @param <T7> T7
+     * @param <R> r
+     *
      * @param f
      *          the {@code Func8} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -219,7 +267,18 @@ public final class Functions {
 
     /**
      * Converts a {@link Func9} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> T6
+     * @param <T7> T7
+     * @param <T8> T8
+     * @param <R> r
+     *
      * @param f
      *          the {@code Func9} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -263,7 +322,7 @@ public final class Functions {
 
     /**
      * Converts an {@link Action1} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     * @param <T0> t0
      * @param f
      *          the {@code Action1} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -286,7 +345,10 @@ public final class Functions {
 
     /**
      * Converts an {@link Action2} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     *
      * @param f
      *          the {@code Action2} to convert
      * @return a {@link FuncN} representation of {@code f}
@@ -309,7 +371,11 @@ public final class Functions {
 
     /**
      * Converts an {@link Action3} to a {@link FuncN} to allow heterogeneous handling of functions with different arities.
-     * 
+     *
+     * @param <T0> t0
+     * @param <T1> t1
+     * @param <T2> t2
+     *
      * @param f
      *          the {@code Action3} to convert
      * @return a {@link FuncN} representation of {@code f}

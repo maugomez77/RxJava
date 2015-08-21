@@ -28,30 +28,7 @@ import rx.subjects.SubjectSubscriptionManager.SubjectObserver;
 /**
  * Subject that publishes only the last item observed to each {@link Observer} that has subscribed, when the
  * source {@code Observable} completes.
- * <p>
- * <img width="640" src="https://raw.github.com/wiki/ReactiveX/RxJava/images/rx-operators/S.AsyncSubject.png" alt="">
- * <p>
- * Example usage:
- * <p>
- * <pre> {@code
-
-  // observer will receive no onNext events because the subject.onCompleted() isn't called.
-  AsyncSubject<Object> subject = AsyncSubject.create();
-  subject.subscribe(observer);
-  subject.onNext("one");
-  subject.onNext("two");
-  subject.onNext("three");
-
-  // observer will receive "three" as the only onNext event.
-  AsyncSubject<Object> subject = AsyncSubject.create();
-  subject.subscribe(observer);
-  subject.onNext("one");
-  subject.onNext("two");
-  subject.onNext("three");
-  subject.onCompleted();
-
-  } </pre>
- * 
+ *
  * @param <T>
  *          the type of item expected to be observed by the Subject
  */

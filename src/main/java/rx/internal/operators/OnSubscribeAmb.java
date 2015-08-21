@@ -35,7 +35,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
 
     /**
      * Given two {@link Observable}s, propagates the one that first emits an item.
-     *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -53,6 +53,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given three {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -73,6 +74,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given four {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -96,6 +98,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given five {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -122,6 +125,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given six {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -151,6 +155,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given seven {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -183,6 +188,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given eight {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -218,6 +224,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given nine {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param o1
      *          the first {@code Observable}
      * @param o2
@@ -256,6 +263,7 @@ public final class OnSubscribeAmb<T> implements OnSubscribe<T>{
     /**
      * Given a set of {@link Observable}s, propagates the one that first emits an item.
      *
+     * @param <T> t
      * @param sources
      *          an {@code Iterable} of {@code Observable}s
      * @return an {@code Observable} that mirrors the one of the {@code Observable}s in {@code sources} that was

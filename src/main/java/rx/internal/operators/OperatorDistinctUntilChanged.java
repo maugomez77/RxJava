@@ -36,7 +36,8 @@ public final class OperatorDistinctUntilChanged<T, U> implements Operator<T, T> 
     /**
      * Returns a singleton instance of OperatorDistinctUntilChanged that was built using 
      * the identity function for comparison (<code>new OperatorDistinctUntilChanged(UtilityFunctions.identity())</code>).
-     * 
+     *
+     * @param <T> t
      * @return Operator that emits sequentially distinct values only using the identity function for comparison 
      */
     @SuppressWarnings("unchecked")

@@ -60,7 +60,12 @@ public final class OperatorSkipWhile<T> implements Operator<T, T> {
             }
         };
     }
-    /** Convert to Func2 type predicate. */
+    /**
+     * Convert to Func2 type predicate.
+     * @param <T> t
+     * @param predicate predicate
+     * @return something
+     */
     public static <T> Func2<T, Integer, Boolean> toPredicate2(final Func1<? super T, Boolean> predicate) {
         return new Func2<T, Integer, Boolean>() {
 

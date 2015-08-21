@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import rx.*;
 import rx.functions.Action0;
-import rx.internal.schedulers.ScheduledAction;
+import rx.internal.schedulers.*;
 import rx.plugins.RxJavaPlugins;
 import rx.subscriptions.*;
 
@@ -51,9 +51,9 @@ import rx.subscriptions.*;
         // TODO: use a better performing structure for task tracking
         final CompositeSubscription tasks;
         // TODO: use MpscLinkedQueue once available
-        final ConcurrentLinkedQueue<ScheduledAction> queue; 
+        final ConcurrentLinkedQueue<ScheduledAction> queue;
         final AtomicInteger wip;
-        
+
         public ExecutorSchedulerWorker(Executor executor) {
             this.executor = executor;
             this.queue = new ConcurrentLinkedQueue<ScheduledAction>();
@@ -86,7 +86,7 @@ import rx.subscriptions.*;
                     throw t;
                 }
             }
-            
+
             return ea;
         }
 
@@ -99,7 +99,7 @@ import rx.subscriptions.*;
                 }
             } while (wip.decrementAndGet() > 0);
         }
-        
+
         @Override
         public Subscription schedule(final Action0 action, long delayTime, TimeUnit unit) {
             if (delayTime <= 0) {
@@ -114,7 +114,7 @@ import rx.subscriptions.*;
             } else {
                 service = GenericScheduledExecutorService.getInstance();
             }
-            
+
             final MultipleAssignmentSubscription first = new MultipleAssignmentSubscription();
             final MultipleAssignmentSubscription mas = new MultipleAssignmentSubscription();
             mas.set(first);
@@ -125,7 +125,7 @@ import rx.subscriptions.*;
                     tasks.remove(mas);
                 }
             });
-            
+
             ScheduledAction ea = new ScheduledAction(new Action0() {
                 @Override
                 public void call() {
@@ -147,8 +147,8 @@ import rx.subscriptions.*;
             // we don't override the current task in mas.
             first.set(ea);
             // we don't need to add ea to tasks because it will be tracked through mas/first
-            
-            
+
+
             try {
                 Future<?> f = service.schedule(ea, delayTime, unit);
                 ea.add(f);
@@ -157,7 +157,7 @@ import rx.subscriptions.*;
                 RxJavaPlugins.getInstance().getErrorHandler().handleError(t);
                 throw t;
             }
-            
+
             /*
              * This allows cancelling either the delayed schedule or the actual schedule referenced
              * by mas and makes sure mas is removed from the tasks composite to avoid leaks.
@@ -174,6 +174,6 @@ import rx.subscriptions.*;
         public void unsubscribe() {
             tasks.unsubscribe();
         }
-        
+
     }
 }

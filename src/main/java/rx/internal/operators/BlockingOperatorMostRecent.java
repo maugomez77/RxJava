@@ -35,6 +35,7 @@ public final class BlockingOperatorMostRecent {
     /**
      * Returns an {@code Iterable} that always returns the item most recently emitted by the {@code Observable}.
      *
+     * @param <T> t
      * @param source
      *            the source {@code Observable}
      * @param initialValue

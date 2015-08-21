@@ -29,9 +29,9 @@ public final class Notification<T> {
     /**
      * Creates and returns a {@code Notification} of variety {@code Kind.OnNext}, and assigns it a value.
      *
-     * @param t
-     *          the item to assign to the notification as its value
-     * @return an {@code OnNext} variety of {@code Notification}
+     * @param t  the item to assign to the notification as its value
+     * @param <T> The passed element
+     * @return T Notification T an {@code OnNext} variety of {@code Notification}
      */
     public static <T> Notification<T> createOnNext(T t) {
         return new Notification<T>(Kind.OnNext, t, null);
@@ -41,7 +41,8 @@ public final class Notification<T> {
      * Creates and returns a {@code Notification} of variety {@code Kind.OnError}, and assigns it an exception.
      *
      * @param e
-     *          the exception to assign to the notification
+     *            the exception to assign to the notification
+     * @param <T>  The element
      * @return an {@code OnError} variety of {@code Notification}
      */
     public static <T> Notification<T> createOnError(Throwable e) {
@@ -50,7 +51,7 @@ public final class Notification<T> {
 
     /**
      * Creates and returns a {@code Notification} of variety {@code Kind.OnCompleted}.
-     *
+     * @param <T> The passed element
      * @return an {@code OnCompleted} variety of {@code Notification}
      */
     @SuppressWarnings("unchecked")
@@ -61,8 +62,8 @@ public final class Notification<T> {
     /**
      * Creates and returns a {@code Notification} of variety {@code Kind.OnCompleted}.
      *
-     * @warn param "type" undescribed
-     * @param type
+     * @param type  type
+     * @param  <T>  class
      * @return an {@code OnCompleted} variety of {@code Notification}
      */
     @SuppressWarnings("unchecked")
@@ -151,6 +152,7 @@ public final class Notification<T> {
 
     /**
      * Forwards this notification on to a specified {@link Observer}.
+     * @param observer  observer
      */
     public void accept(Observer<? super T> observer) {
         if (isOnNext()) {

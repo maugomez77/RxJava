@@ -31,7 +31,9 @@ public final class BackpressureUtils {
      * Adds {@code n} to {@code requested} field and returns the value prior to
      * addition once the addition is successful (uses CAS semantics). If
      * overflows then sets {@code requested} field to {@code Long.MAX_VALUE}.
-     * 
+     *
+     * @param  <T>  t
+     *
      * @param requested
      *            atomic field updater for a request count
      * @param object
@@ -62,8 +64,6 @@ public final class BackpressureUtils {
      * 
      * @param requested
      *            atomic field updater for a request count
-     * @param object
-     *            contains the field updated by the updater
      * @param n
      *            the number of requests to add to the requested count
      * @return requested value just prior to successful addition

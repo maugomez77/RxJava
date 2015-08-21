@@ -29,7 +29,6 @@ import rx.internal.operators.BackpressureUtils;
 /**
  * Abstract base class for the {@link OnSubscribe} interface that helps you build Observable sources one
  * {@code onNext} at a time, and automatically supports unsubscription and backpressure.
- * <p>
  * <h1>Usage rules</h1>
  * When you implement the {@code next()} method, you
  * <ul>
@@ -86,71 +85,11 @@ import rx.internal.operators.BackpressureUtils;
  * 
  * <h1>Examples</h1>
  * Note: these examples use the lambda-helper factories to avoid boilerplate.
- * 
- * <h3>Implement: just</h3>
- * <pre><code>
- * AbstractOnSubscribe.create(s -> {
- *   s.onNext(1);
- *   s.onCompleted();
- * }).toObservable().subscribe(System.out::println);
- * </code></pre>
-
- * <h3>Implement: from Iterable</h3>
- * <pre><code>
- * Iterable<T> iterable = ...;
- * AbstractOnSubscribe.create(s -> {
- *   Iterator<T> it = s.state();
- *   if (it.hasNext()) {
- *     s.onNext(it.next());
- *   }
- *   if (!it.hasNext()) {
- *     s.onCompleted();
- *   }
- * }, u -> iterable.iterator()).subscribe(System.out::println);
- * </code></pre>
- *
- * <h3>Implement source that fails a number of times before succeeding</h3>
- * <pre><code>
- * AtomicInteger fails = new AtomicInteger();
- * int numFails = 50;
- * AbstractOnSubscribe.create(s -> {
- *   long c = s.calls();
- *   switch (s.phase()) {
- *   case 0:
- *     s.onNext("Beginning");
- *     s.onError(new RuntimeException("Oh, failure.");
- *     if (c == numFails.getAndIncrement()) {
- *       s.advancePhase();
- *     }
- *     break;
- *   case 1:
- *     s.onNext("Beginning");
- *     s.advancePhase();
- *   case 2:
- *     s.onNext("Finally working");
- *     s.onCompleted();
- *     s.advancePhase();
- *   default:
- *     throw new IllegalStateException("How did we get here?");
- *   }
- * }).subscribe(System.out::println);
- * </code></pre>
-
- * <h3>Implement: never</h3>
- * <pre><code>
- * AbstractOnSubscribe.create(s -> {
- *   s.stop();
- * }).toObservable()
- * .timeout(1, TimeUnit.SECONDS)
- * .subscribe(System.out::println, Throwable::printStacktrace, () -> System.out.println("Done"));
- * </code></pre>
  *
  * @param <T> the value type
  * @param <S> the per-subscriber user-defined state type
  * @since (if this graduates from Experimental/Beta to supported, replace this parenthetical with the release number)
- * @Experimental
  */
-@Experimental
 public abstract class AbstractOnSubscribe<T, S> implements OnSubscribe<T> {
     /**
      * Called when a Subscriber subscribes and lets the implementor create a per-subscriber custom state.
@@ -391,7 +330,6 @@ public abstract class AbstractOnSubscribe<T, S> implements OnSubscribe<T> {
      * @param <T> the value type 
      * @param <S> the per-subscriber user-defined state type
      * @since (if this graduates from Experimental/Beta to supported, replace this parenthetical with the release number)
-     * @Experimental
      */
     public static final class SubscriptionState<T, S> {
         private final AbstractOnSubscribe<T, S> parent;
@@ -432,7 +370,7 @@ public abstract class AbstractOnSubscribe<T, S> implements OnSubscribe<T> {
         /**
          * Sets a new phase value.
          *
-         * @param newPhase
+         * @param newPhase   new pahse
          */
         public void phase(int newPhase) {
             phase = newPhase;
@@ -578,8 +516,6 @@ public abstract class AbstractOnSubscribe<T, S> implements OnSubscribe<T> {
          * unsubscribed.
          *
          * @return {@code true} if the state can be used exclusively
-         * @throws IllegalStateEception
-         * @warn "throws" section incomplete
          */
         protected boolean use() {
             int i = inUse.get();

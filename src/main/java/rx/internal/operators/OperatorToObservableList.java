@@ -42,6 +42,7 @@ public final class OperatorToObservableList<T> implements Operator<List<T>, T> {
         static final OperatorToObservableList<Object> INSTANCE = new OperatorToObservableList<Object>();
     }
     /**
+     * @param <T> t
      * @return a singleton instance of this stateless operator.
      */
     @SuppressWarnings({ "unchecked" })

@@ -29,7 +29,7 @@ package rx.internal.util.atomic;
  * 
  * @author nitsanw
  * 
- * @param <E>
+ * @param <E> description
  */
 public final class SpscLinkedAtomicQueue<E> extends BaseLinkedAtomicQueue<E> {
 
@@ -53,7 +53,6 @@ public final class SpscLinkedAtomicQueue<E> extends BaseLinkedAtomicQueue<E> {
      * </ol>
      * From this follows that producerNode.next is always null and for all other nodes node.next is not null.
      * 
-     * @see MessagePassingQueue#offer(Object)
      * @see java.util.Queue#offer(java.lang.Object)
      */
     @Override

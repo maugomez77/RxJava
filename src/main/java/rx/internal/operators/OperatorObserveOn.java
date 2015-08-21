@@ -46,7 +46,7 @@ public final class OperatorObserveOn<T> implements Operator<T, T> {
     private final Scheduler scheduler;
 
     /**
-     * @param scheduler
+     * @param scheduler  scheduler
      */
     public OperatorObserveOn(Scheduler scheduler) {
         this.scheduler = scheduler;

@@ -31,8 +31,7 @@ import rx.Observer;
  * <p>
  * It's implemented as a singleton to maintain some semblance of type safety that is completely non-existent.
  * 
- * @param <T>
- * @warn type param undescribed
+ * @param <T> t
  */
 public final class NotificationLite<T> {
     private NotificationLite() {
@@ -43,7 +42,7 @@ public final class NotificationLite<T> {
 
     /**
      * Gets the {@code NotificationLite} singleton.
-     *
+     * @param <T> t
      * @return the sole {@code NotificationLite} object
      */
     @SuppressWarnings("unchecked")

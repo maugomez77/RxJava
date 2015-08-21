@@ -64,6 +64,7 @@ public final class OperatorMerge<T> implements Operator<T, Observable<? extends 
     /**
      * @param delayErrors should the merge delay errors?
      * @return a singleton instance of this stateless operator.
+     * @param <T> t
      */
     @SuppressWarnings("unchecked")
     public static <T> OperatorMerge<T> instance(boolean delayErrors) {
@@ -74,9 +75,10 @@ public final class OperatorMerge<T> implements Operator<T, Observable<? extends 
     }
     /**
      * Creates a new instance of the operator with the given delayError and maxConcurrency settings.
-     * @param delayErrors
+     * @param <T> t
+     * @param delayErrors   delay errors
      * @param maxConcurrent the maximum number of concurrent subscriptions or Integer.MAX_VALUE for unlimited
-     * @return
+     * @return a value
      */
     public static <T> OperatorMerge<T> instance(boolean delayErrors, int maxConcurrent) {
         if (maxConcurrent == Integer.MAX_VALUE) {

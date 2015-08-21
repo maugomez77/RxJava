@@ -101,7 +101,7 @@ public final class Actions {
 
     /**
      * Converts an {@link Action1} to a function that calls the action and returns {@code null}.
-     * 
+     * @param <T1> t1
      * @param action
      *            the {@link Action1} to convert
      * @return a {@link Func1} that calls {@code action} and returns {@code null}
@@ -112,7 +112,8 @@ public final class Actions {
 
     /**
      * Converts an {@link Action2} to a function that calls the action and returns {@code null}.
-     * 
+     * @param <T1> t1
+     * @param <T2> t2
      * @param action
      *            the {@link Action2} to convert
      * @return a {@link Func2} that calls {@code action} and returns {@code null}
@@ -123,7 +124,9 @@ public final class Actions {
 
     /**
      * Converts an {@link Action3} to a function that calls the action and returns {@code null}.
-     * 
+     * @param <T1> T1
+     * @param <T2> t2
+     * @param <T3> t3
      * @param action
      *            the {@link Action3} to convert
      * @return a {@link Func3} that calls {@code action} and returns {@code null}
@@ -134,7 +137,10 @@ public final class Actions {
 
     /**
      * Converts an {@link Action4} to a function that calls the action and returns {@code null}.
-     * 
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
      * @param action
      *            the {@link Action4} to convert
      * @return a {@link Func4} that calls {@code action} and returns {@code null}
@@ -145,7 +151,11 @@ public final class Actions {
 
     /**
      * Converts an {@link Action5} to a function that calls the action and returns {@code null}.
-     * 
+     * @param <T1> T1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> T4
+     * @param <T5> t5
      * @param action
      *            the {@link Action5} to convert
      * @return a {@link Func5} that calls {@code action} and returns {@code null}
@@ -157,7 +167,12 @@ public final class Actions {
 
     /**
      * Converts an {@link Action6} to a function that calls the action and returns {@code null}.
-     * 
+     * @param <T1> T1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
      * @param action
      *            the {@link Action6} to convert
      * @return a {@link Func6} that calls {@code action} and returns {@code null}
@@ -169,7 +184,14 @@ public final class Actions {
 
     /**
      * Converts an {@link Action7} to a function that calls the action and returns {@code null}.
-     * 
+     *
+     * @param <T1> T1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
      * @param action
      *            the {@link Action7} to convert
      * @return a {@link Func7} that calls {@code action} and returns {@code null}
@@ -181,7 +203,15 @@ public final class Actions {
 
     /**
      * Converts an {@link Action8} to a function that calls the action and returns {@code null}.
-     * 
+     *
+     * @param <T1> T1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <T8> t8
      * @param action
      *            the {@link Action8} to convert
      * @return a {@link Func8} that calls {@code action} and returns {@code null}
@@ -193,7 +223,16 @@ public final class Actions {
 
     /**
      * Converts an {@link Action9} to a function that calls the action and returns {@code null}.
-     * 
+     *
+     * @param <T1> T1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <T8> t8
+     * @param <T9> t9
      * @param action
      *            the {@link Action9} to convert
      * @return a {@link Func9} that calls {@code action} and returns {@code null}
@@ -217,7 +256,8 @@ public final class Actions {
 
     /**
      * Converts an {@link Action0} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <R> r
      * @param action
      *            the {@link Action0} to convert
      * @param result
@@ -236,7 +276,8 @@ public final class Actions {
 
     /**
      * Converts an {@link Action1} to a function that calls the action and returns a specified value.
-     * 
+     * @param <T1> t1
+     * @param <R> r
      * @param action
      *            the {@link Action1} to convert
      * @param result
@@ -255,7 +296,10 @@ public final class Actions {
 
     /**
      * Converts an {@link Action2} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <R> r
      * @param action
      *            the {@link Action2} to convert
      * @param result
@@ -274,7 +318,11 @@ public final class Actions {
 
     /**
      * Converts an {@link Action3} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> t3
+     * @param <R> R
      * @param action
      *            the {@link Action3} to convert
      * @param result
@@ -293,7 +341,12 @@ public final class Actions {
 
     /**
      * Converts an {@link Action4} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> T3
+     * @param <T4> t4
+     * @param <R> r
      * @param action
      *            the {@link Action4} to convert
      * @param result
@@ -312,7 +365,14 @@ public final class Actions {
 
     /**
      * Converts an {@link Action5} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> T3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <R> r
+     *
      * @param action
      *            the {@link Action5} to convert
      * @param result
@@ -332,7 +392,15 @@ public final class Actions {
 
     /**
      * Converts an {@link Action6} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> T3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <R> r
+     *
      * @param action
      *            the {@link Action6} to convert
      * @param result
@@ -352,7 +420,16 @@ public final class Actions {
 
     /**
      * Converts an {@link Action7} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> T3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <R> r
+     *
      * @param action
      *            the {@link Action7} to convert
      * @param result
@@ -372,7 +449,17 @@ public final class Actions {
 
     /**
      * Converts an {@link Action8} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> T3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <T8> t8
+     * @param <R> r
+     *
      * @param action
      *            the {@link Action8} to convert
      * @param result
@@ -392,7 +479,18 @@ public final class Actions {
 
     /**
      * Converts an {@link Action9} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <T1> t1
+     * @param <T2> t2
+     * @param <T3> T3
+     * @param <T4> t4
+     * @param <T5> t5
+     * @param <T6> t6
+     * @param <T7> t7
+     * @param <T8> t8
+     * @param <T9> t9
+     * @param <R> r
+     *
      * @param action
      *            the {@link Action9} to convert
      * @param result
@@ -412,7 +510,8 @@ public final class Actions {
 
     /**
      * Converts an {@link ActionN} to a function that calls the action and returns a specified value.
-     * 
+     *
+     * @param <R> r
      * @param action
      *            the {@link ActionN} to convert
      * @param result
